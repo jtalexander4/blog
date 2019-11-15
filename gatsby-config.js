@@ -9,7 +9,9 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: process.env.DEPLOY_URL
+        ? `https://young-river-62351.herokuapp.com`
+        : `http://localhost:1337`,
         queryLimit: 1000, // Default to 100
         contentTypes: [`article`, `user`],
         // Possibility to login with a strapi user, when content types are not publically available (Optional).
